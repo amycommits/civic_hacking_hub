@@ -5,3 +5,12 @@ exports.list = function(res) {
     return res.status(200).json({ projects })
   })
 }
+
+exports.findProject = function(id, res) {
+  return Project.query()
+    .where({ id })
+    .first()
+    .then((project) => {
+      return res.status(200).json({ project })
+    })
+}

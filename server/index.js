@@ -1,6 +1,8 @@
 const express = require('express')
 const Knex = require('knex')
 const { Model } = require('objection')
+const bodyParser = require('body-parser')
+
 
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -17,6 +19,9 @@ config.dev = process.env.NODE_ENV !== 'production'
 const knex = Knex(knexConfig.development)
 Model.knex(knex)
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
 async function start() {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
@@ -31,7 +36,9 @@ async function start() {
     await nuxt.ready()
   }
 
+
   app.use('/', routes)
+ 
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
