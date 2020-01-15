@@ -4,12 +4,12 @@ const ProjectService = require('../services/project.service')
 
 // route.use('/auth', auth)
 
-route.get('/start', (req, res) => {
-  res.status(200).json({ message: 'maybe start?' })
-})
-
 route.get('/projects', (req, res) => {
   ProjectService.list(res)
+})
+
+route.post('/project', (req, res) => {
+  ProjectService.findProject(req.body.id, res)
 })
 
 module.exports = route
