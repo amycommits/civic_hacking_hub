@@ -1,4 +1,6 @@
 import InternalService from '../api/InternalService'
+const cookieparser = process.server ? require('cookieparser') : undefined
+
 export const state = () => ({
   projects: null,
   project: null
@@ -15,11 +17,26 @@ export const actions = {
     })
   },
   findProject({ commit }, id) {
-    // const formData = new FormData()
-    // formData.append('id', id)
     InternalService.findProject({ id }).then((results) => {
       commit('SET_PROJECT', results.data.project)
     })
+  },
+  nuxtServerInit({ commit }, { req }) {
+    let auth = null
+    const cookies = req.headers.cookie
+    if (cookies) {
+      const parsed = cookieparser.parse(req.headers.cookie)
+      try {
+        const userInfo = JSON.parse(parsed.userInfo)
+        auth = userInfo.accessToken // {}
+        commit('user/SET_AUTH', auth)
+      } catch (err) {
+        console.log('it errored?')
+        console.log(err)
+        // No valid cookie found
+      }
+    }
+    // commit('user/SET_AUTH', auth)
   }
 }
 

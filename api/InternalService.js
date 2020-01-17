@@ -15,11 +15,11 @@ export default {
   },
   findProject(id) {
     return apiClient.post('project', id)
+  },
+  registerUser(info) {
+    return apiClient.post('auth/local/registration', info)
+  },
+  loginUser(info) {
+    return apiClient.post('auth/local/login', info)
   }
-  // registerUser(info) {
-  //   return apiClient.post('auth/local/registration', info)
-  // },
-  // loginUser(info) {
-  //   return apiClient.post('auth/local/login', info)
-  // }
 }
