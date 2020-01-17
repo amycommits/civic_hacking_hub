@@ -1,8 +1,8 @@
 const route = require('express').Router()
 const ProjectService = require('../services/project.service')
-// const auth = require('./auth')
+const auth = require('./auth')
 
-// route.use('/auth', auth)
+route.use('/auth', auth)
 
 route.get('/projects', (req, res) => {
   ProjectService.list(res)
