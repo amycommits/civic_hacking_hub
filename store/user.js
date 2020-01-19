@@ -2,7 +2,8 @@ import InternalService from '../api/InternalService'
 const Cookie = process.client ? require('js-cookie') : undefined
 
 export const state = () => ({
-  auth: null
+  auth: null,
+  info: null
 })
 
 export const actions = {
@@ -23,8 +24,6 @@ export const actions = {
   },
   login({ commit }, info) {
     InternalService.loginUser(info).then((result) => {
-      console.log(result)
-      console.log('@@@@@@@')
       if (result.data.id) {
         commit('SET_AUTH', result.data)
         Cookie.set('auth', { accessToken: result.data.oauth_token })
@@ -37,8 +36,9 @@ export const actions = {
 
 export const mutations = {
   SET_AUTH(state, result) {
-    console.log('setting the auth')
-    console.log(result)
     state.auth = result
+  },
+  SET_INFO(state, info) {
+    state.info = info
   }
 }

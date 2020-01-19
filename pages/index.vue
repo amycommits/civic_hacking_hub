@@ -3,25 +3,28 @@
     <h1>
       Projects
     </h1>
-    <div v-for="project in projects" :key="project.id">
-      <project-card :project="project" />
-    </div>
+    <project-wrapper :projects="projects" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import ProjectCard from '~/components/project/ProjectCard'
+import ProjectWrapper from '~/components/project/ProjectWrapper'
+import InternalService from '~/api/InternalService'
+
 export default {
   name: 'Index',
   components: {
-    ProjectCard
+    ProjectWrapper
   },
-  computed: mapState({
-    projects: (state) => state.projects
-  }),
-  mounted() {
-    this.$store.dispatch('setProjects')
+  data() {
+    return {
+      projects: []
+    }
+  },
+  asyncData(context) {
+    return InternalService.projects().then((result) => {
+      return { projects: result.data.projects }
+    })
   }
 }
 </script>
