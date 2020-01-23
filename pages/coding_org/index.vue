@@ -1,24 +1,30 @@
 <template>
   <div class="row">
     <h1 class="col-12">Coding Organizations</h1>
-    <div v-for="org in codeOrgs" :key="org.id" class="col-12 code-org-section">
-      <code-org-card :codeOrg="org" />
+    <nuxt-link to="/coding_org/create">Create New</nuxt-link>
+    <div>
+      <code-org-wrapper :codeOrgs="codeOrgs" />
     </div>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import CodeOrgCard from '../../components/code_orgs/CodeOrgCard'
+import CodeOrgWrapper from '../../components/code_orgs/CodeOrgWrapper'
+import InternalService from '@/api/InternalService'
+
 export default {
   name: 'CodeOrgIndex',
   components: {
-    CodeOrgCard
+    CodeOrgWrapper
   },
-  computed: mapState({
-    codeOrgs: (state) => state.codeOrgs
-  }),
-  mounted() {
-    this.$store.dispatch('fetchCodeOrganizations')
+  data() {
+    return {
+      codeOrgs: []
+    }
+  },
+  asyncData(context) {
+    return InternalService.codeOrgs().then((result) => {
+      return { codeOrgs: result.data }
+    })
   }
 }
 </script>

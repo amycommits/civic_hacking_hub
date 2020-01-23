@@ -23,7 +23,7 @@ route.get('/code_orgs', (req, res) => {
 })
 
 route.post('/code_org/new', (req, res) => {
-  CodeOrgService.create(res, req.body.info)
+  CodeOrgService.create(res, req.body)
 })
 
 route.get('/nonprofit_orgs', (req, res) => {
@@ -31,7 +31,7 @@ route.get('/nonprofit_orgs', (req, res) => {
 })
 
 route.post('/nonprofit_org/new', (req, res) => {
-  NonprofitService.create(res, req.body.info)
+  NonprofitService.create(res, req.body)
 })
 
 module.exports = route

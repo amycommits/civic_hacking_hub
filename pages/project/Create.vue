@@ -72,7 +72,11 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$store.dispatch('create_project/submitNewProject', this.info)
+      this.$store
+        .dispatch('create_project/submitNewProject', this.info)
+        .then(() => {
+          this.$router.push('/')
+        })
     }
   }
 }

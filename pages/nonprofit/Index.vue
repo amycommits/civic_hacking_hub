@@ -1,24 +1,28 @@
 <template>
   <div>
     <h1>Nonprofits</h1>
-    <div v-for="nonprofit in nonprofits" :key="nonprofit.id">
-      <nonprofit-org-card :nonprofitOrg="nonprofit" />
-    </div>
+    <nuxt-link to="/nonprofit/create">Create New</nuxt-link>
+    <nonprofit-org-wrapper :nonprofits="nonprofits" />
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import NonprofitOrgCard from '../../components/nonprofit_orgs/NonprofitCard'
+import NonprofitOrgWrapper from '../../components/nonprofit_orgs/NonprofitWrapper'
+import InternalService from '@/api/InternalService'
+
 export default {
   name: 'NonprofitIndex',
   components: {
-    NonprofitOrgCard
+    NonprofitOrgWrapper
   },
-  computed: mapState({
-    nonprofits: (state) => state.nonprofitOrgs
-  }),
-  mounted() {
-    this.$store.dispatch('fetchNonprofits')
+  data() {
+    return {
+      nonprofits: []
+    }
+  },
+  asyncData(context) {
+    return InternalService.nonprofits().then((result) => {
+      return { nonprofits: result.data }
+    })
   }
 }
 </script>

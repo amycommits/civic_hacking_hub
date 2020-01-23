@@ -7,6 +7,7 @@ exports.list = function(res) {
 }
 
 exports.create = function(res, info) {
+  console.log('made it to create')
   return CodeOrg.query()
     .where({ name: info.name })
     .orWhere({ url: info.url })

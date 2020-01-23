@@ -26,7 +26,7 @@ export default {
     return apiClient.post('project/new', info)
   },
   createCodeOrg(info) {
-    return apiClient.post('code_org/new', info)
+    return apiClient.post('code_org/new', JSON.stringify(info))
   },
   createNonprofitOrg(info) {
     return apiClient.post('nonprofit_org/new', info)

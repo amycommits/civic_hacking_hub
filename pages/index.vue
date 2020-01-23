@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import ProjectWrapper from '~/components/project/ProjectWrapper'
-import InternalService from '~/api/InternalService'
+import ProjectWrapper from '@/components/project/ProjectWrapper'
+import InternalService from '@/api/InternalService'
 
 export default {
   name: 'Index',

@@ -25,6 +25,12 @@ export const actions = {
       commit('SET_PROJECT', results.data.project)
     })
   },
+  createCodeOrg({ commit }, info) {
+    InternalService.createCodeOrg(info)
+  },
+  createNonprofit({ commit }, info) {
+    InternalService.createNonprofitOrg(info)
+  },
   nuxtServerInit({ dispatch, commit }, { req }) {
     const cookies = req.headers.cookie
     if (cookies) {
