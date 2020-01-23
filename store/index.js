@@ -6,6 +6,10 @@ export const state = () => ({
   project: null
 })
 
+export const getters = {
+  projects: (state) => state.projects
+}
+
 export const actions = {
   setProjects({ commit }) {
     InternalService.projects().then((results) => {
@@ -21,22 +25,29 @@ export const actions = {
       commit('SET_PROJECT', results.data.project)
     })
   },
-  nuxtServerInit({ commit }, { req }) {
-    let auth = null
+  createCodeOrg({ commit }, info) {
+    InternalService.createCodeOrg(info)
+  },
+  createNonprofit({ commit }, info) {
+    InternalService.createNonprofitOrg(info)
+  },
+  nuxtServerInit({ dispatch, commit }, { req }) {
     const cookies = req.headers.cookie
     if (cookies) {
       const parsed = cookieparser.parse(req.headers.cookie)
       try {
-        const userInfo = JSON.parse(parsed.userInfo)
-        auth = userInfo.accessToken // {}
+        const auth = JSON.parse(parsed.auth).accessToken
+        const userInfo = JSON.parse(parsed.user).accessToken
         commit('user/SET_AUTH', auth)
+        commit('user/SET_INFO', userInfo)
       } catch (err) {
+        // eslint-disable-next-line
         console.log('it errored?')
+        // eslint-disable-next-line
         console.log(err)
         // No valid cookie found
       }
     }
-    // commit('user/SET_AUTH', auth)
   }
 }
 

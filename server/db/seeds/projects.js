@@ -19,10 +19,6 @@ exports.seed = function(knex) {
             .where({ name: 'National Diaper Bank' })
             .first()
             .select('id'),
-          user_created_id: knex
-            .table('users')
-            .first()
-            .select('id'),
           github_link: 'https://github.com/rubyforgood/diaper',
           setup_link:
             'https://github.com/rubyforgood/diaper/blob/master/installation.md'
@@ -39,10 +35,6 @@ exports.seed = function(knex) {
           nonprofit_organization_id: knex
             .table('nonprofit_organizations')
             .where({ name: 'National Diaper Bank' })
-            .first()
-            .select('id'),
-          user_created_id: knex
-            .table('users')
             .first()
             .select('id'),
           github_link: 'https://github.com/rubyforgood/partner',

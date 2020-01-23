@@ -14,3 +14,10 @@ exports.findProject = function(id, res) {
       return res.status(200).json({ project })
     })
 }
+exports.createProject = function(res, info) {
+  return Project.query()
+    .insert(info)
+    .then((record) => {
+      return res.status(200).json({ record })
+    })
+}
