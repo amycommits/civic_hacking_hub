@@ -25,7 +25,7 @@ module.exports = {
     },
     ssl: true,
     seeds: {
-      directory: './server/db/migrations'
+      directory: './server/db/seeds'
     },
     pool: {
       min: 2,
