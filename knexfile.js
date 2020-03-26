@@ -14,18 +14,18 @@ module.exports = {
     seeds: {
       directory: './server/db/seeds'
     }
-    // ,
-    // pool: {
-    //   afterCreate: (conn, cb) => {
-    //     conn.run('PRAGMA foreign_keys = ON', cb);
-    //   }
-    // }
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'example'
+    client: 'pg',
+    debug: true,
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: './server/db/migrations'
+    },
+    ssl: true,
+    seeds: {
+      directory: './server/db/migrations'
     },
     pool: {
       min: 2,
