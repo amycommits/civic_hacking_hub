@@ -13,7 +13,7 @@ const passport = require('passport')
 const config = require('../nuxt.config.js')
 const knexConfig = require('../knexfile.js')
 const secrets = require('./config/secrets.json')
-const routes = require('./routes')
+// const routes = require('./routes')
 
 config.dev = process.env.NODE_ENV !== 'production'
 
@@ -52,7 +52,7 @@ async function start() {
   // Set up passport auth
   require('./config/passport/local_strategy.config')(passport)
 
-  app.use('/', routes)
+  // app.use('/', routes)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

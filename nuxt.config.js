@@ -35,9 +35,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module'
   ],
-  /*
-   ** Nuxt.js modules
-   */
+  serverMiddleware: ['~/server/routes/index'],
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
