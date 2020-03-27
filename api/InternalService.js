@@ -1,40 +1,41 @@
 import axios from 'axios'
 
-const apiClient = axios.create({
-  baseURL: `http://localhost:3000`,
-  withCredentials: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
-})
-
 export default {
   projects() {
-    return apiClient.get('projects')
+    return axios
+      .get('/api/projects')
+      .catch(console.log('projects are the weak link'))
   },
   nonprofits() {
-    return apiClient.get('nonprofit_orgs')
+    return axios
+      .get('/api/nonprofit_orgs')
+      .catch(console.log('nonprofits are the weak link'))
   },
   codeOrgs() {
-    return apiClient.get('code_orgs')
+    return axios
+      .get('/api/code_orgs')
+      .catch(console.log('code orgs are the weak link'))
   },
   findProject(id) {
-    return apiClient.post('project', id)
+    return axios
+      .post('/api/project', id)
+      .catch(console.log('find project is the weak link'))
   },
   createProject(info) {
-    return apiClient.post('project/new', info)
+    return axios
+      .post('/api/project/new', info)
+      .catch(console.log('create project are the weak link'))
   },
   createCodeOrg(info) {
-    return apiClient.post('code_org/new', JSON.stringify(info))
+    return axios.post('/api/code_org/new', JSON.stringify(info))
   },
   createNonprofitOrg(info) {
-    return apiClient.post('nonprofit_org/new', info)
+    return axios.post('/api/nonprofit_org/new', info)
   },
   registerUser(info) {
-    return apiClient.post('auth/local/registration', info)
+    return axios.post('/api/auth/local/registration', info)
   },
   loginUser(info) {
-    return apiClient.post('auth/local/login', info)
+    return axios.post('/api/auth/local/login', info)
   }
 }

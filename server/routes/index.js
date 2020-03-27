@@ -1,37 +1,68 @@
-const route = require('express').Router()
+// const route = require('express').Router()
+const express = require('express')
+const Knex = require('knex')
+const { Model } = require('objection')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const helmet = require('helmet')
+const passport = require('passport')
+const knexConfig = require('../../knexfile')
+
+const app = express()
+
 const ProjectService = require('../services/project.service')
 const CodeOrgService = require('../services/code_organization.service')
 const NonprofitService = require('../services/nonprofit_organization.service')
 const auth = require('./auth')
 
-route.use('/auth', auth)
+let knex = {}
 
-route.get('/projects', (req, res) => {
+if (process.env.NODE_ENV !== 'production') {
+  knex = Knex(knexConfig.development)
+} else {
+  knex = Knex(knexConfig.production)
+}
+
+app.use(bodyParser.json())
+app.use(cors())
+app.use(helmet())
+require('../config/passport/local_strategy.config')(passport)
+
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'reached the api endpoint' })
+})
+
+app.use('/auth', auth)
+
+app.get('/projects', (req, res) => {
   ProjectService.list(res)
 })
 
-route.post('/project', (req, res) => {
+app.post('/project', (req, res) => {
   ProjectService.findProject(req.body.id, res)
 })
 
-route.post('/project/new', (req, res) => {
+app.post('/project/new', (req, res) => {
   ProjectService.createProject(res, req.body)
 })
 
-route.get('/code_orgs', (req, res) => {
+app.get('/code_orgs', (req, res) => {
   CodeOrgService.list(res)
 })
 
-route.post('/code_org/new', (req, res) => {
+app.post('/code_org/new', (req, res) => {
   CodeOrgService.create(res, req.body)
 })
 
-route.get('/nonprofit_orgs', (req, res) => {
+app.get('/nonprofit_orgs', (req, res) => {
   NonprofitService.list(res)
 })
 
-route.post('/nonprofit_org/new', (req, res) => {
+app.post('/nonprofit_org/new', (req, res) => {
   NonprofitService.create(res, req.body)
 })
 
-module.exports = route
+module.exports = {
+  path: '/api',
+  handler: app
+}
