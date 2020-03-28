@@ -1,10 +1,10 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('projects')
-    .del()
-    .then(function() {
-      // Inserts seed entries
-      return knex('projects').insert([
+    .select('name')
+    .then(function(existingProjects) {
+      existingProjects = existingProjects.map((x) => x.name)
+      const seedList = [
         {
           name: 'Diaper Base',
           description:
@@ -41,6 +41,10 @@ exports.seed = function(knex) {
           setup_link:
             'https://github.com/rubyforgood/partner/blob/master/installation.md'
         }
-      ])
+      ]
+
+      const newList = seedList.filter((x) => !existingProjects.includes(x.name))
+      // Inserts seed entries
+      return knex('projects').insert(newList)
     })
 }
