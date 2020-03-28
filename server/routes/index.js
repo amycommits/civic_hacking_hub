@@ -23,6 +23,8 @@ if (process.env.NODE_ENV !== 'production') {
   knex = Knex(knexConfig.production)
 }
 
+Model.knex(knex)
+
 app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
