@@ -12,7 +12,7 @@ module.exports = {
       directory: './server/db/migrations'
     },
     seeds: {
-      directory: './server/db/seeds'
+      directory: './server/db/seeds/development'
     }
   },
 
@@ -25,7 +25,7 @@ module.exports = {
     },
     ssl: true,
     seeds: {
-      directory: './server/db/seeds'
+      directory: './server/db/seeds/production'
     },
     pool: {
       min: 2,

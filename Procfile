@@ -1,1 +1,1 @@
-web: nuxt start
+web: knex migrate:latest && knex seed:run && nuxt start

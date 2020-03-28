@@ -7,6 +7,8 @@
 ``` bash
 # install dependencies
 $ npm run install
+$ knex migrate:latest
+$ knex seed:run
 
 # serve with hot reload at localhost:3000
 $ npm run dev
