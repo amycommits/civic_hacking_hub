@@ -8,23 +8,19 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import CodeOrgWrapper from '../../components/code_orgs/CodeOrgWrapper'
-import InternalService from '@/api/InternalService'
 
 export default {
   name: 'CodeOrgIndex',
   components: {
     CodeOrgWrapper
   },
-  data() {
-    return {
-      codeOrgs: []
-    }
+  computed: {
+    ...mapGetters(['codeOrgs'])
   },
-  asyncData(context) {
-    return InternalService.codeOrgs().then((result) => {
-      return { codeOrgs: result.data }
-    })
+  mounted() {
+    this.$store.dispatch('setCodeOrgs')
   }
 }
 </script>

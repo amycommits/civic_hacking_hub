@@ -2,27 +2,23 @@
   <div>
     <h1>Nonprofits</h1>
     <nuxt-link to="/nonprofit/create">Create New</nuxt-link>
-    <!-- <nonprofit-org-wrapper :nonprofits="nonprofits" /> -->
+    <nonprofit-org-wrapper :nonprofits="nonprofitOrgs" />
   </div>
 </template>
 <script>
-// import NonprofitOrgWrapper from '../../components/nonprofit_orgs/NonprofitWrapper'
-import InternalService from '@/api/InternalService'
+import { mapGetters } from 'vuex'
+import NonprofitOrgWrapper from '../../components/nonprofit_orgs/NonprofitWrapper'
 
 export default {
   name: 'NonprofitIndex',
-  // components: {
-  //   NonprofitOrgWrapper
-  // },
-  data() {
-    return {
-      nonprofits: []
-    }
+  components: {
+    NonprofitOrgWrapper
   },
-  asyncData(context) {
-    return InternalService.nonprofits().then((result) => {
-      return { nonprofits: result.data }
-    })
+  computed: {
+    ...mapGetters(['nonprofitOrgs'])
+  },
+  mounted() {
+    this.$store.dispatch('setNonProfitOrgs')
   }
 }
 </script>
