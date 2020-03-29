@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Nonprofits</h1>
-    <!-- <nuxt-link to="/nonprofit/create">Create New</nuxt-link> -->
+    <nuxt-link to="/nonprofit/create">Create New</nuxt-link>
     <!-- <nonprofit-org-wrapper :nonprofits="nonprofits" /> -->
   </div>
 </template>
