@@ -5,7 +5,9 @@ export const state = () => ({
   auth: null,
   info: null
 })
-
+export const getters = {
+  userId: (state) => state.auth.id
+}
 export const actions = {
   setRegistration({ commit }, info) {
     InternalService.registerUser(info).then((result) => {

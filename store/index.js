@@ -3,11 +3,15 @@ const cookieparser = process.server ? require('cookieparser') : undefined
 
 export const state = () => ({
   projects: null,
-  project: null
+  project: null,
+  nonprofitOrgs: [],
+  codeOrgs: []
 })
 
 export const getters = {
-  projects: (state) => state.projects
+  projects: (state) => state.projects,
+  nonprofitOrgs: (state) => state.nonprofitOrgs,
+  codeOrgs: (state) => state.codeOrgs
 }
 
 export const actions = {
@@ -30,6 +34,16 @@ export const actions = {
   },
   createNonprofit({ commit }, info) {
     InternalService.createNonprofitOrg(info)
+  },
+  setNonProfitOrgs({ commit }) {
+    InternalService.nonprofits().then((results) => {
+      commit('SET_NONPROFIT_ORGS', results.data)
+    })
+  },
+  setCodeOrgs({ commit }) {
+    InternalService.codeOrgs().then((results) => {
+      commit('SET_CODE_ORGS', results.data)
+    })
   },
   nuxtServerInit({ dispatch, commit }, { req }) {
     const cookies = req.headers.cookie
@@ -57,5 +71,11 @@ export const mutations = {
   },
   SET_PROJECT(state, project) {
     state.project = project
+  },
+  SET_NONPROFIT_ORGS(state, nonprofitOrgs) {
+    state.nonprofitOrgs = nonprofitOrgs
+  },
+  SET_CODE_ORGS(state, codeOrgs) {
+    state.codeOrgs = codeOrgs
   }
 }

@@ -13,29 +13,20 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import CustomSelect from '~/components/CustomSelect'
-import InternalService from '~/api/InternalService'
 
 export default {
   name: 'Home',
   components: {
     CustomSelect
   },
-  data() {
-    return {
-      codeOrgs: [],
-      nonprofitOrgs: null
-    }
+  computed: {
+    ...mapGetters(['codeOrgs', 'nonprofitOrgs'])
   },
-  asyncData(context) {
-    return InternalService.codeOrgs().then((codeOrgResults) => {
-      return InternalService.nonprofits().then((nonprofitResults) => {
-        return {
-          codeOrgs: codeOrgResults.data,
-          nonprofitOrgs: nonprofitResults.data
-        }
-      })
-    })
+  mounted() {
+    this.$store.dispatch('codeOrgs')
+    this.$store.dispatch('nonprofitOrgs')
   }
 }
 </script>

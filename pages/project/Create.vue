@@ -35,9 +35,8 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import CustomSelect from '~/components/CustomSelect'
-import InternalService from '~/api/InternalService'
 
 export default {
   name: 'CreateProject',
@@ -52,23 +51,16 @@ export default {
         description: null,
         github_link: null,
         setup_link: null
-      },
-      codeOrgs: [],
-      nonprofitOrgs: []
+      }
     }
   },
-  computed: mapState({
-    userId: (state) => state.user.auth.id
-  }),
-  asyncData(context) {
-    return InternalService.codeOrgs().then((codeOrgResults) => {
-      return InternalService.nonprofits().then((nonprofitResults) => {
-        return {
-          codeOrgs: codeOrgResults.data,
-          nonprofitOrgs: nonprofitResults.data
-        }
-      })
-    })
+  computed: {
+    ...mapGetters(['codeOrgs', 'nonprofitOrgs']),
+    ...mapGetters('user', ['userId'])
+  },
+  mounted() {
+    this.$store.dispatch('setCodeOrgs')
+    this.$store.dispatch('setNonProfitOrgs')
   },
   methods: {
     handleClick() {
