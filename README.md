@@ -1,6 +1,8 @@
 # civic-hacking-hub
 
-> My scrumtrulescent Nuxt.js project
+> Civic Hacking is when you use your skills to build tools for non-profits that may not otherwise be able to afford it.
+
+> This repo exists because I believe that it should be easier to find these types of projects.
 
 ## Build Setup
 
