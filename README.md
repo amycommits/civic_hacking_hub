@@ -24,3 +24,12 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Contributing
+clone the repo
+make a new branch 
+look at the open issues and assign one to yourself
+make a PR and associate the issue with it.
+
+## Contact
+Discord: amyd - 40#2999
