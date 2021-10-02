@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="nonprofit in nonprofits" :key="nonprofit.id">
-      <nonprofit-card :nonprofitOrg="nonprofit" />
+      <nonprofit-card :nonprofit-org="nonprofit" />
     </div>
   </div>
 </template>

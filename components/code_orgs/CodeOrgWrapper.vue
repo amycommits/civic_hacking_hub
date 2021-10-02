@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="org in codeOrgs" :key="org.id" class="col-12 code-org-section">
-      <code-org-card :codeOrg="org" />
+      <code-org-card :code-org="org" />
     </div>
   </div>
 </template>

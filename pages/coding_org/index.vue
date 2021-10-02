@@ -3,7 +3,7 @@
     <h1 class="col-12">Coding Organizations</h1>
     <nuxt-link to="/coding_org/create">Create New</nuxt-link>
     <div>
-      <code-org-wrapper :codeOrgs="codeOrgs" />
+      <code-org-wrapper :code-orgs="codeOrgs" />
     </div>
   </div>
 </template>

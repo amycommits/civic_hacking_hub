@@ -2,9 +2,9 @@
   <div>
     <label :for="identifier">{{ displayName }}</label>
     <select
-      :name="identifier"
       :id="identifier"
       v-model="selectedItem"
+      :name="identifier"
       @change="setOrgPicked(identifier)"
     >
       <option

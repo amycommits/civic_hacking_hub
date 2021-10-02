@@ -13,11 +13,11 @@ import Login from '../../components/users/LoginComponent'
 import Register from '../../components/users/Register'
 export default {
   name: 'UserLogin',
-  middleware: 'notAuthenticated',
   components: {
     Login,
     Register
   },
+  middleware: 'notAuthenticated',
   data() {
     return {
       isLoginSelected: true
