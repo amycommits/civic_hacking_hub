@@ -40,10 +40,10 @@ import CustomSelect from '~/components/CustomSelect'
 
 export default {
   name: 'CreateProject',
-  middleware: 'authenticated',
   components: {
     CustomSelect
   },
+  middleware: 'authenticated',
   data() {
     return {
       info: {

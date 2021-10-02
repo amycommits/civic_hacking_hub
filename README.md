@@ -6,6 +6,11 @@
 
 ## Build Setup
 
+# dependencies
+
+## Be on node version v12.21.0
+$ nvm use v12.21.0
+
 ``` bash
 # install dependencies
 $ npm run install
@@ -26,10 +31,7 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## Contributing
-clone the repo
-make a new branch 
-look at the open issues and assign one to yourself
-make a PR and associate the issue with it.
+Look for the Contributions.md file.
 
 ## Contact
 Discord: amyd - 40#2999
