@@ -7,12 +7,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ProjectWrapper from '~/components/project/ProjectWrapper'
 
 export default {
   name: 'Index',
   components: {
-    ProjectWrapper,
+    ProjectWrapper: () => import('@/components/project/ProjectWrapper.vue'),
   },
   computed: {
     ...mapGetters(['projects']),
