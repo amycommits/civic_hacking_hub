@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-red-400">
+  <div>
     <h1>Projects</h1>
     <project-wrapper :projects="projects" />
   </div>
