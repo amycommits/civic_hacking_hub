@@ -1,7 +1,7 @@
 import InternalService from '~/api/InternalService'
 export const state = () => ({
   codingOrg: null,
-  nonprofitOrgs: null
+  nonprofitOrgs: null,
 })
 
 export const actions = {
@@ -15,7 +15,7 @@ export const actions = {
     InternalService.createProject(info).then((result) => {
       commit('SUBMIT_NEW_PROJECT', info)
     })
-  }
+  },
 }
 
 export const mutations = {
@@ -24,5 +24,5 @@ export const mutations = {
   },
   SUBMIT_NEW_PROJECT(state, info) {
     // stuff
-  }
+  },
 }

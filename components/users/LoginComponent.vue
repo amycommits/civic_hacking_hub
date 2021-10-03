@@ -21,14 +21,14 @@ export default {
     return {
       info: {
         email: null,
-        password: null
-      }
+        password: null,
+      },
     }
   },
   methods: {
     handleSubmit() {
       this.$store.dispatch('user/login', this.info)
-    }
-  }
+    },
+  },
 }
 </script>

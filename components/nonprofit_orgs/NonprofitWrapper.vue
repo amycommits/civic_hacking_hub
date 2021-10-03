@@ -10,13 +10,13 @@ import NonprofitCard from '@/components/nonprofit_orgs/NonprofitCard'
 export default {
   name: 'NonprofitWrapper',
   components: {
-    NonprofitCard
+    NonprofitCard,
   },
   props: {
     nonprofits: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 }
 </script>

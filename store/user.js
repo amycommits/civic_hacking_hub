@@ -3,10 +3,10 @@ const Cookie = process.client ? require('js-cookie') : undefined
 
 export const state = () => ({
   auth: null,
-  info: null
+  info: null,
 })
 export const getters = {
-  userId: (state) => state.auth.id
+  userId: (state) => state.auth.id,
 }
 export const actions = {
   setRegistration({ commit }, info) {
@@ -33,7 +33,7 @@ export const actions = {
         this.$router.push('/')
       }
     })
-  }
+  },
 }
 
 export const mutations = {
@@ -42,5 +42,5 @@ export const mutations = {
   },
   SET_INFO(state, info) {
     state.info = info
-  }
+  },
 }

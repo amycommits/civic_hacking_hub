@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1>
-      Projects
-    </h1>
+  <div class="bg-red-400">
+    <h1>Projects</h1>
     <project-wrapper :projects="projects" />
   </div>
 </template>
@@ -14,13 +12,13 @@ import ProjectWrapper from '@/components/project/ProjectWrapper'
 export default {
   name: 'Index',
   components: {
-    ProjectWrapper
+    ProjectWrapper,
   },
   computed: {
-    ...mapGetters(['projects'])
+    ...mapGetters(['projects']),
   },
   mounted() {
     this.$store.dispatch('setProjects')
-  }
+  },
 }
 </script>

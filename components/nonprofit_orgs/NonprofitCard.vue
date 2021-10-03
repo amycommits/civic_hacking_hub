@@ -17,8 +17,8 @@ export default {
   props: {
     nonprofitOrg: {
       type: Object,
-      default: () => {}
-    }
-  }
+      default: () => {},
+    },
+  },
 }
 </script>

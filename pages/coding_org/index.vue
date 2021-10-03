@@ -14,13 +14,13 @@ import CodeOrgWrapper from '../../components/code_orgs/CodeOrgWrapper'
 export default {
   name: 'CodeOrgIndex',
   components: {
-    CodeOrgWrapper
+    CodeOrgWrapper,
   },
   computed: {
-    ...mapGetters(['codeOrgs'])
+    ...mapGetters(['codeOrgs']),
   },
   mounted() {
     this.$store.dispatch('setCodeOrgs')
-  }
+  },
 }
 </script>

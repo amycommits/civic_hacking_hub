@@ -23,29 +23,29 @@ export default {
   props: {
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     identifier: {
       type: String,
-      default: null
+      default: null,
     },
     displayName: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      selectedItem: null
+      selectedItem: null,
     }
   },
   methods: {
     setOrgPicked(orgName) {
       this.$store.dispatch('create_project/setOrg', {
         name: orgName,
-        item: this.selectedItem
+        item: this.selectedItem,
       })
-    }
-  }
+    },
+  },
 }
 </script>

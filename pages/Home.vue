@@ -19,14 +19,14 @@ import CustomSelect from '~/components/CustomSelect'
 export default {
   name: 'Home',
   components: {
-    CustomSelect
+    CustomSelect,
   },
   computed: {
-    ...mapGetters(['codeOrgs', 'nonprofitOrgs'])
+    ...mapGetters(['codeOrgs', 'nonprofitOrgs']),
   },
   mounted() {
     this.$store.dispatch('codeOrgs')
     this.$store.dispatch('nonprofitOrgs')
-  }
+  },
 }
 </script>
