@@ -1,24 +1,10 @@
 <template>
   <div>
-    <h1>Projects</h1>
-    <project-wrapper :projects="projects" />
+    <h1>Welcome to the Civic Hacking Hub</h1>
   </div>
 </template>
-
 <script>
-import { mapGetters } from 'vuex'
-import ProjectWrapper from '@/components/project/ProjectWrapper'
-
 export default {
-  name: 'Index',
-  components: {
-    ProjectWrapper,
-  },
-  computed: {
-    ...mapGetters(['projects']),
-  },
-  mounted() {
-    this.$store.dispatch('setProjects')
-  },
+  name: ''
 }
 </script>
