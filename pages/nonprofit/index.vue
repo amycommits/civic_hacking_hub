@@ -12,13 +12,13 @@ import NonprofitOrgWrapper from '../../components/nonprofit_orgs/NonprofitWrappe
 export default {
   name: 'NonprofitIndex',
   components: {
-    NonprofitOrgWrapper
+    NonprofitOrgWrapper,
   },
   computed: {
-    ...mapGetters(['nonprofitOrgs'])
+    ...mapGetters(['nonprofitOrgs']),
   },
   mounted() {
     this.$store.dispatch('setNonProfitOrgs')
-  }
+  },
 }
 </script>

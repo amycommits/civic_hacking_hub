@@ -11,13 +11,13 @@ import ProjectCard from '~/components/project/ProjectCard'
 export default {
   name: 'Index',
   components: {
-    ProjectCard
+    ProjectCard,
   },
   props: {
     projects: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>

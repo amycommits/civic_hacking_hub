@@ -15,18 +15,18 @@ export default {
   name: 'UserLogin',
   components: {
     Login,
-    Register
+    Register,
   },
   middleware: 'notAuthenticated',
   data() {
     return {
-      isLoginSelected: true
+      isLoginSelected: true,
     }
   },
   methods: {
     isLogin() {
       this.isLoginSelected = !this.isLoginSelected
-    }
-  }
+    },
+  },
 }
 </script>

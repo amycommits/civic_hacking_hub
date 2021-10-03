@@ -11,13 +11,13 @@ import CodeOrgCard from './CodeOrgCard'
 export default {
   name: 'CodeOrgWrapper',
   components: {
-    CodeOrgCard
+    CodeOrgCard,
   },
   props: {
     codeOrgs: {
       type: Array,
-      default: () => []
-    }
-  }
+      default: () => [],
+    },
+  },
 }
 </script>

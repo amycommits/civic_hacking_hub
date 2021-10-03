@@ -26,14 +26,14 @@ export default {
       info: {
         email: null,
         password: null,
-        passwordConfirmation: null
-      }
+        passwordConfirmation: null,
+      },
     }
   },
   methods: {
     handleSubmit() {
       this.$store.dispatch('user/setRegistration', this.info)
-    }
-  }
+    },
+  },
 }
 </script>

@@ -9,7 +9,7 @@ import NavBar from '../components/NavBar'
 export default {
   name: 'DefaultTemplate',
   components: {
-    NavBar
-  }
+    NavBar,
+  },
 }
 </script>

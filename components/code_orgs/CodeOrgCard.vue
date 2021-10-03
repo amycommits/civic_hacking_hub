@@ -15,8 +15,8 @@ export default {
   props: {
     codeOrg: {
       type: Object,
-      default: () => {}
-    }
-  }
+      default: () => {},
+    },
+  },
 }
 </script>

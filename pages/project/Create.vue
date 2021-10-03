@@ -41,7 +41,7 @@ import CustomSelect from '~/components/CustomSelect'
 export default {
   name: 'CreateProject',
   components: {
-    CustomSelect
+    CustomSelect,
   },
   middleware: 'authenticated',
   data() {
@@ -50,13 +50,13 @@ export default {
         name: null,
         description: null,
         github_link: null,
-        setup_link: null
-      }
+        setup_link: null,
+      },
     }
   },
   computed: {
     ...mapGetters(['codeOrgs', 'nonprofitOrgs']),
-    ...mapGetters('user', ['userId'])
+    ...mapGetters('user', ['userId']),
   },
   mounted() {
     this.$store.dispatch('setCodeOrgs')
@@ -69,7 +69,7 @@ export default {
         .then(() => {
           this.$router.push('/')
         })
-    }
-  }
+    },
+  },
 }
 </script>

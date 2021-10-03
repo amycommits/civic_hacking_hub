@@ -29,9 +29,9 @@ export default {
   props: {
     project: {
       type: Object,
-      default: () => {}
-    }
-  }
+      default: () => {},
+    },
+  },
 }
 </script>
 <style scoped>

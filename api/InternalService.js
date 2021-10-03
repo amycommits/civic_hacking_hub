@@ -37,5 +37,5 @@ export default {
   },
   loginUser(info) {
     return axios.post('/api/auth/local/login', info)
-  }
+  },
 }

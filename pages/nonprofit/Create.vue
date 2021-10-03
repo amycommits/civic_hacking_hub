@@ -26,8 +26,8 @@ export default {
       info: {
         name: null,
         url: null,
-        description: null
-      }
+        description: null,
+      },
     }
   },
   methods: {
@@ -35,7 +35,7 @@ export default {
       this.$store.dispatch('createNonprofit', this.info).then(() => {
         this.$router.push('/nonprofit')
       })
-    }
-  }
+    },
+  },
 }
 </script>

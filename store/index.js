@@ -5,13 +5,13 @@ export const state = () => ({
   projects: null,
   project: null,
   nonprofitOrgs: [],
-  codeOrgs: []
+  codeOrgs: [],
 })
 
 export const getters = {
   projects: (state) => state.projects,
   nonprofitOrgs: (state) => state.nonprofitOrgs,
-  codeOrgs: (state) => state.codeOrgs
+  codeOrgs: (state) => state.codeOrgs,
 }
 
 export const actions = {
@@ -62,7 +62,7 @@ export const actions = {
         // No valid cookie found
       }
     }
-  }
+  },
 }
 
 export const mutations = {
@@ -77,5 +77,5 @@ export const mutations = {
   },
   SET_CODE_ORGS(state, codeOrgs) {
     state.codeOrgs = codeOrgs
-  }
+  },
 }

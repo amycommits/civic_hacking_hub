@@ -10,13 +10,13 @@ import ProjectCard from '../../components/project/ProjectCard'
 export default {
   name: 'ProjectId',
   components: {
-    ProjectCard
+    ProjectCard,
   },
   computed: mapState({
-    project: (state) => state.project
+    project: (state) => state.project,
   }),
   mounted() {
     this.$store.dispatch('findProject', this.$route.params.id)
-  }
+  },
 }
 </script>
