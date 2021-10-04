@@ -69,5 +69,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  telemetry: true
 }
