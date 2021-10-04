@@ -5,6 +5,7 @@ exports.up = function(knex) {
     table.string('description', 500)
     table.string('github_link', 250)
     table.string('setup_link', 250)
+    table.json('language_tags')
     table.integer('code_organization_id').unsigned()
     table.integer('nonprofit_organization_id').unsigned()
     table.integer('user_created_id').unsigned()
