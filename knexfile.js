@@ -1,5 +1,5 @@
 const { optionalRequire } = require('optional-require')
-const secrets = optionalRequire('./sercets')
+const secrets = optionalRequire('./secrets')
 
 module.exports = {
   development: {
