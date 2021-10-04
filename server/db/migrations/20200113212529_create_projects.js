@@ -1,4 +1,4 @@
-exports.up = function (knex) {
+exports.up = function(knex) {
   return knex.schema.createTable('projects', function (table) {
     table.increments('id')
     table.string('name', 250)
@@ -21,6 +21,6 @@ exports.up = function (knex) {
   })
 }
 
-exports.down = function (knex) {
+exports.down = function(knex) {
   return knex.schema.dropTableIfExists('projects')
 }
