@@ -55,6 +55,8 @@ You have two ways to configure your database credentials:
     }
     ```
 
+How you can see, env vars has precedence, if you use both configurations env var will win, we recommend using env vars.
+
 ## Dependencies
 
 ## Be on node version v12.21.0
