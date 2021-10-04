@@ -1,4 +1,5 @@
 import InternalService from '../api/InternalService'
+import githubService from '~/api/githubService'
 const cookieparser = process.server ? require('cookieparser') : undefined
 
 export const state = () => ({
@@ -6,11 +7,13 @@ export const state = () => ({
   project: null,
   nonprofitOrgs: [],
   codeOrgs: [],
+  nonprofits: [],
 })
 
 export const getters = {
   projects: (state) => state.projects,
   nonprofitOrgs: (state) => state.nonprofitOrgs,
+  nonprofits: (state) => state.nonprofits,
   codeOrgs: (state) => state.codeOrgs,
 }
 
@@ -45,6 +48,11 @@ export const actions = {
       commit('SET_CODE_ORGS', results.data)
     })
   },
+  setNonprofitRepos({ commit }) {
+    return githubService.nonprofitsRepo().then((results) => {
+      commit('SET_NONPROFIT_REPOS', results.data)
+    })
+  },
   nuxtServerInit({ dispatch, commit }, { req }) {
     const cookies = req.headers.cookie
     if (cookies) {
@@ -77,5 +85,8 @@ export const mutations = {
   },
   SET_CODE_ORGS(state, codeOrgs) {
     state.codeOrgs = codeOrgs
+  },
+  SET_NONPROFIT_REPOS(state, nonprofits) {
+    state.nonprofits = nonprofits
   },
 }
