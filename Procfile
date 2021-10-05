@@ -1,1 +1,1 @@
-web: knex migrate:latest && knex seed:run && nuxt start
+web: npm ci && nuxt build && knex migrate:latest && knex seed:run && nuxt start
