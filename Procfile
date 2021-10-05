@@ -1,1 +1,1 @@
-web: knex migrate:rollback && knex migrate:latest && knex seed:run && nuxt start
+web: knex migrate:latest && knex seed:run && nuxt start
