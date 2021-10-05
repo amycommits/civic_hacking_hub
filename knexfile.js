@@ -7,8 +7,8 @@ module.exports = {
     useNullAsDefault: true,
     connection: {
       database: 'civic_hacking',
-      user: secrets.DB_USER_NAME,
-      password: secrets.DB_PASSWORD,
+      user: secrets.DB_USER_NAME || 'postgres',
+      password: secrets.DB_PASSWORD || '',
       schema: 'my_schema'
     },
     migrations: {
