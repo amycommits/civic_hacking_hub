@@ -71,6 +71,6 @@ git remote add upstream https://github.com/duaimei/civic_hacking_hub.git
 $ git fetch --all
 $ git checkout dev
 $ git pull
-$ git checkout -b
+$ git checkout -b <your-branch-name>
 ```
 
