@@ -57,6 +57,23 @@ You have two ways to configure your database credentials:
 
 How you can see, env vars has precedence, if you use both configurations env var will win, we recommend using env vars.
 
+# Using with docker 🐋 
+
+1. build the compose file🐋 
+   > `docker-compose -f docker-compose.yml up -d --build`
+
+   > `This will build postgres, pgadmin and the nuxt app`
+   
+2. Run The migrations and the seeder 🌱
+
+   > `docker-compose exec nuxt-app npx knex migrate:latest` 
+
+   > `docker-compose exec nuxt-app npx knex seed:run`
+
+3. Run the app on your **localhost:3000**
+    > You can also open localhost:5050 to manage postgres database with pgadmin (credentials on docker-compose.yml file)
+
+
 ## Dependencies
 
 ## Be on node version v12.21.0
