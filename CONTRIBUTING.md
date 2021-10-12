@@ -68,6 +68,9 @@ git remote add upstream https://github.com/duaimei/civic_hacking_hub.git
 2. Pull the latest changes from the main branch.
 
 ```bash
-git pull upstream main
+$ git fetch --all
+$ git checkout dev
+$ git pull
+$ git checkout -b <your-branch-name>
 ```
 
