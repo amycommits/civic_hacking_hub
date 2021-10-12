@@ -6,7 +6,8 @@ module.exports = {
     client: 'pg',
     useNullAsDefault: true,
     connection: {
-      database: 'civic_hacking',
+      host: secrets.DB_HOST || 'postgres',
+      database: secrets.DB_NAME || 'civic_hacking',
       user: secrets.DB_USER_NAME || 'postgres',
       password: secrets.DB_PASSWORD || '',
       schema: 'my_schema'
